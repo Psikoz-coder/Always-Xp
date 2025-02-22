@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="icon" href="/images/windows xp logo.ico" type="image/x-icon">
+    <style>
+        body {
+            background: url('https://cdn.arstechnica.net/wp-content/uploads/2023/06/bliss-update.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Tahoma, Geneva, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }.error-container {
+        background: white;
+        border: 2px solid #000;
+        width: 400px;
+        padding: 20px;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .error-header {
+        background: #000080;
+        color: white;
+        padding: 8px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .error-content {
+        padding: 20px;
+    }
+
+    .error-footer {
+        text-align: right;
+        padding-top: 10px;
+    }
+
+    .error-footer button {
+        border: 1px solid #000;
+        background: #d9d9d9;
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+
+    .error-image {
+        position: absolute;
+        max-width: 300px;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+        animation: fadeIn 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+
+</head>
+<body><div class="error-container">
+    <div class="error-header">
+        <span>Windows XP - Error</span>
+        <div style="cursor: pointer;" onclick="this.parentElement.parentElement.remove()">✖</div>
+    </div>
+    <div class="error-content">
+        <p><strong>404 - Not Found</strong></p>
+        <p>Sorry, the page you were looking for was not found.</p>
+    </div>
+    <div class="error-footer">
+        <button onclick="window.location.href='/index.html'">Ok</button>
+    </div>
+</div>
+
+<script>
+    function createErrorImage(src) {
+        const errorImg = document.createElement('img');
+        errorImg.className = 'error-image';
+        errorImg.src = src;
+        errorImg.onclick = () => errorImg.remove();
+
+        const x = Math.random() * (window.innerWidth - 320);
+        const y = Math.random() * (window.innerHeight - 240);
+        errorImg.style.left = `${x}px`;
+        errorImg.style.top = `${y}px`;
+        errorImg.style.position = 'absolute';
+
+        document.body.appendChild(errorImg);
+    }
+
+    const errorImages = [
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err1.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err2.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err3.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err4.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err5.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err6.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err7.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err8.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err9.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err10.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err11.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/err12.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc1.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc2.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc3.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc4.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc5.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc6.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc7.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc8.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc9.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc10.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc11.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/misc12.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn1.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn2.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn3.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn4.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn5.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn6.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn7.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn8.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn9.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn10.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn11.png',
+        'https://raw.githubusercontent.com/1280px/errorflow/refs/heads/master/err/warn12.png'
+    ];
+
+    errorImages.forEach((src, index) => {
+        setTimeout(() => {
+            createErrorImage(src);
+        }, index * 1000);
+    });
+
+    // setTimeout(() => {
+    //     document.querySelectorAll('.error-image').forEach(img => img.remove());
+    // }, 7000);
+</script></body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    background: #111 !important;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+#navb {
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+ .imagexp {
+height: 50%;
+width: 20%;
+padding-left: 3%;
+padding-right: 1%;
+padding-top: 2%;
+}
+
+.textt{
+    padding-right: 10%;
+    padding-top: 2%;
+    line-height: 1.5;
+}
+
+/* .text1{
+    padding-right: 30%;
+}
+*/
+.text1{
+    padding-left: 20%;
+}
+
+#h1title {
+    padding-left: 5%;
+}
+
+.xp-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 10000;
+  }
+  
+  .xp-overlay img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .xp-overlay div {
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .show-overlay {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  /* Sadece XP logosu ve yazıyı sallama efekti */
+  @keyframes shake {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5px, -5px); }
+    20% { transform: translate(5px, 5px); }
+    30% { transform: translate(-5px, 5px); }
+    40% { transform: translate(5px, -5px); }
+    50% { transform: translate(-5px, -5px); }
+    60% { transform: translate(5px, 5px); }
+    70% { transform: translate(-5px, 5px); }
+    80% { transform: translate(5px, -5px); }
+    90% { transform: translate(-5px, -5px); }
+  }
+  
+  .shake-animation {
+    animation: shake 0.5s ease-in-out infinite;
+  }
