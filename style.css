@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  transition: background 0.4s, color 0.4s;
 }
 
 /* Navbar Responsive */
@@ -20,6 +21,7 @@ body {
   width: 30px;
   height: 30px;
 }
+
 
 
 #carouselExampleDark {
@@ -70,7 +72,14 @@ body {
       flex: 0 0 50%;
       max-width: 50%;
   }
+
+  .buton1{
+    margin-right: 40%;
+  }
+
 }
+
+
 @media (max-width: 768px) {
   .col-md-4 {
       flex: 0 0 100%;
@@ -81,6 +90,9 @@ body {
   }
   .carousel-inner img {
       width: 100%;
+  }
+  .buton1{
+    margin-right: 50%;
   }
 }
 
@@ -134,4 +146,23 @@ body {
 
 .shake-animation {
   animation: shake 0.5s ease-in-out infinite;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff; /* Başlangıç rengi */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Geçiş efekti */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Hover (üzerine gelindiğinde) rengi */
+  color: #fff;
+}
+
+.buttonss{
+  margin-left: 750px;
+  flex: none;
 }
