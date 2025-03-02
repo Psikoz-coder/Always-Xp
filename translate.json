@@ -27,7 +27,8 @@
       "cracked3": "Bu sadece bozuk bir ekran mı, yoksa simülasyon dağılmaya mı başladı? Her iki durumda da bunun için `geri al` düğmesi yoktur!",
       "black1": "Kritik Vuruş!",
       "black2": "Reality.exe çöktü",
-      "black3": "Bir şey ekrana sert bir şekilde çarptı! Bir kuş muydu, bir böcek miydi yoksa Windows sonunda pes mi etti?"
+      "black3": "Bir şey ekrana sert bir şekilde çarptı! Bir kuş muydu, bir böcek miydi yoksa Windows sonunda pes mi etti?",
+      "game": "Oyun oyna"
     },
     "en": {
       "home": "Home",
@@ -56,7 +57,8 @@
       "cracked3": "Is this just a broken screen, or has the simulation started falling apart? Either way, there’s no `undo` button for this!",
       "black1": "Critical Hit!",
       "black2": "Reality.exe has crashed",
-      "black3": "Something just hit the screen hard! Was it a bird, a bug, or Windows finally giving up?"
+      "black3": "Something just hit the screen hard! Was it a bird, a bug, or Windows finally giving up?",
+      "game": "Play Game"
     }
   },
   "/about-cards/xpwhy.html": {
@@ -70,7 +72,8 @@
       "he1": "Makineye Karşı Öfke",
       "home": "Ana sayfa",
       "aboutxp": "Xp Hakkında", 
-      "online": "Çevrimiçi Xp"
+      "online": "Çevrimiçi Xp",
+      "game": "Oyun oyna"
     },
     "en": {
       "p1": "This card is a tribute to the most ancient and reliable tech support method—violence.",
@@ -82,7 +85,8 @@
       "he1": "Rage Against the Machine",
       "home": "Home",
       "aboutxp": "About Xp",
-      "online": "Online Xp"
+      "online": "Online Xp",
+      "game": "Play Game"
     }
   },
   "/about-cards/xpfrog.html": {
@@ -95,7 +99,8 @@
       "frog5": "Hiçbir temiz hava bu tür bir travmayı düzeltemez.",
       "home": "Ana sayfa",
       "aboutxp": "Xp Hakkında", 
-      "online": "Çevrimiçi Xp"
+      "online": "Çevrimiçi Xp",
+      "game": "Oyun oyna"
     },
     "en": {
       "kermit1": "Kermit Has Had Enough",
@@ -106,7 +111,8 @@
       "frog5": "No amount of fresh air can fix that kind of trauma.",
       "home": "Home",
       "aboutxp": "About Xp",
-      "online": "Online Xp"
+      "online": "Online Xp",
+      "game": "Play Game"
     }
   },
   "/about-cards/xpbluescreen.html": {
@@ -119,7 +125,8 @@
       "bluee3": "sadece bir fırça kap ve hiç olmamış gibi davran.",
       "bluee4": "Bu yenilikçi bir BT çözümü mü yoksa sadece bir inkar mı? Söylemesi zor.",
       "bluee5": "Ama kesin olan bir şey var ki, sorunu çözemiyorsanız bile en azından başkasının sorunu haline getirebilirsiniz.",
-      "bluee6": "Gözden ırak, gönülden ırak...  Bir sonraki yeniden başlatmaya kadar."
+      "bluee6": "Gözden ırak, gönülden ırak...  Bir sonraki yeniden başlatmaya kadar.",
+      "game": "Oyun oyna"
     },
     "en":{
       "home": "Home",
@@ -130,7 +137,8 @@
       "bluee3": "just grab a paintbrush and pretend it never happened.",
       "bluee4": "Is this an innovative IT fix or just pure denial? Hard to say.",
       "bluee5": "But one thing’s for sure—if you can’t solve the problem, at least you can make it someone else’s problem.",
-      "bluee6": "Out of sight, out of mind… until the next reboot."
+      "bluee6": "Out of sight, out of mind… until the next reboot.",
+      "game": "Play Game"
     }
   },
   "/about-cards/xpracecar.html": {
@@ -143,7 +151,8 @@
       "car3": "Sonsuzluğa sahipken asfalta kimin ihtiyacı var,",
       "car4": "inişli çıkışlı yeşil tepeler ve şüpheli bir şekilde varsayılan duvar kağıdına benzeyen mavi bir gökyüzü?",
       "car5": "Bitiş çizgisini bulabilecekler mi yoksa ölümcül bir hataya mı düşecekler?",
-      "car6": "Bunu öğrenmenin tek bir yolu var: Sürmeye devam etmek ve Clippy'nin yardımcı pilot olmamasını ummak."
+      "car6": "Bunu öğrenmenin tek bir yolu var: Sürmeye devam etmek ve Clippy'nin yardımcı pilot olmamasını ummak.",
+      "game": "Oyun oyna"
     },
     "en":{
       "home": "Home",
@@ -154,7 +163,8 @@
       "car3": "Who needs asphalt when you have endless,",
       "car4": "rolling green hills and a sky so blue it looks suspiciously like a default wallpaper?",
       "car5": "Will they find the finish line or just crash into a fatal error?",
-      "car6": "Only one way to find out—keep driving and hope Clippy isn’t the co-pilot."
+      "car6": "Only one way to find out—keep driving and hope Clippy isn’t the co-pilot.",
+      "game": "Play Game"
     }
 },
 "/about-cards/xpscreen.html": {
@@ -167,7 +177,8 @@
     "break3": "Ya ekranınız bozuldu ya da simülasyon öfkeyle son buldu.",
     "break4": "Kapatıp tekrar açmayı denediniz mi? Hayır. “Geri al “a bas? Hiç şansın yok. Bilgi İşlem'i arayın? Sadece sizi suçlayacaklar.",
     "break5": "Bu sırada Clippy ortaya çıkar: “Görünüşe göre gerçekliğin parçalanıyor. Yardım ister misin?”",
-    "break6": "Çok geç, dostum. Artık kırık ekran bölgesindeyiz - bunun için yama notları gelmiyor!"
+    "break6": "Çok geç, dostum. Artık kırık ekran bölgesindeyiz - bunun için yama notları gelmiyor!",
+    "game": "Oyun oyna"
   },
   "en": {
     "home": "Home",
@@ -178,7 +189,8 @@
     "break3": "Either your screen is broken, or the simulation just rage-quit.",
     "break4": "Try turning it off and on again? Nope. Hit “undo”? Not a chance. Call IT? They’ll just blame you.",
     "break5": "Meanwhile, Clippy pops up: `It looks like your reality is falling apart. Would you like some help?`",
-    "break6": "Too late, buddy. We’re in cracked screen territory now—no patch notes coming for this one!"
+    "break6": "Too late, buddy. We’re in cracked screen territory now—no patch notes coming for this one!",
+    "game": "Play Game"
   }
 },
 "/about-cards/xpblackscreen.html": {
@@ -190,7 +202,8 @@
     "darkk2": "BOOM! Bir şey ekrana kritik bir darbe indirdi.",
     "darkk3": "Bir kuş muydu? Bir böcek mi? Yoksa Windows sonunda bu kadarının yeterli olduğuna mı karar verdi?",
     "darkk4": "Kesin olan bir şey var-Reality.exe yanıt vermeyi durdurdu.",
-    "darkk5": "Ctrl+Alt+Del tuşlarına basmayı denediniz mi? Hayır, bunun tamamen yeniden başlatılması gerekecek... ya da bir dua."
+    "darkk5": "Ctrl+Alt+Del tuşlarına basmayı denediniz mi? Hayır, bunun tamamen yeniden başlatılması gerekecek... ya da bir dua.",
+    "game": "Oyun oyna"
   },
   "en": {
     "home": "Home",
@@ -200,7 +213,30 @@
     "darkk2": "BOOM! Something just delivered a critical hit to the screen.",
     "darkk3": "Was it a bird? A bug? Or did Windows finally decide it’s had enough?",
     "darkk4": "One thing’s for sure—Reality.exe has stopped responding.",
-    "darkk5": "Try pressing Ctrl+Alt+Del? Nah, this one’s gonna need a full reboot… or a prayer."
+    "darkk5": "Try pressing Ctrl+Alt+Del? Nah, this one’s gonna need a full reboot… or a prayer.",
+    "game": "Play Game"
+  }
+},
+"/game/index.html":{
+  "tr":{
+    "zorluk": "Zorluk Seviyesi Seçin:",
+    "es": "Kolay",
+    "med": "Orta Seviye",
+    "har": "Zor",
+    "gameover": "Oyun Bitti",
+    "rev": "Yeniden Başla",
+    "diff": "Zorluk Seç",
+    "main": "Ana Ekrana Dön"
+  },
+  "en":{
+    "zorluk": "Choose Difficulty Level:",
+    "es": "Easy",
+    "med": "Medium",
+    "har": "Hard",
+    "gameover": "Game Over",
+    "rev": "Start Again",
+    "diff": "Select difficulty",
+    "main": "Return to Main Screen"
   }
 }
 }
