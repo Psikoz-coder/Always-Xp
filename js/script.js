@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function loadTranslations(lang) {
-        fetch("/translate.json")
+        fetch("/data/translate.json")
             .then(response => response.json())
             .then(data => {
                 const currentPath = getCurrentPath();

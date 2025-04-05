@@ -12,6 +12,7 @@ let monitorWidth;
 let monitorHeight;
 let errorWidth;
 let errorHeight;
+let scoreFontSize; // Skor yazı tipi boyutu için değişken
 
 // Canvas boyutlarını ayarla
 function resizeCanvas() {
@@ -19,9 +20,9 @@ function resizeCanvas() {
     canvas.height = window.innerHeight;
     
     // Responsive değerleri güncelle
-    PLATFORM_HEIGHT = canvas.height / 12;
+    PLATFORM_HEIGHT = canvas.height / 15; // Biraz daha kalın platform
     monitorY = canvas.height / 2;
-    monitorSpeed = canvas.height / 60;
+    monitorSpeed = canvas.height / 75; // Hızı biraz ayarlayalım
     monitorX = canvas.width / 6;
     
     // Resimleri cihaz boyutuna göre ölçeklendir
@@ -33,6 +34,9 @@ function resizeCanvas() {
     monitorHeight = monitorOriginalHeight * monitorScaleFactor * scaleFactor;
     errorWidth = errorOriginalWidth * errorScaleFactor * scaleFactor;
     errorHeight = errorOriginalHeight * errorScaleFactor * scaleFactor;
+
+    // Skor yazı tipi boyutunu ayarla
+    scoreFontSize = Math.max(20, Math.min(40, canvas.width / 30)); // Ekran genişliğine göre ayarla
 }
 
 window.addEventListener('resize', () => {
@@ -47,6 +51,7 @@ window.addEventListener('resize', () => {
 const WHITE = '#FFFFFF';
 const BLACK = '#000000';
 const RED = '#FF0000';
+const SCORE_COLOR = '#FFFF00'; // Sarı renk skor için
 
 let gameOver = false;
 let gameStarted = false;
@@ -79,20 +84,11 @@ const backgroundImage = document.getElementById('backgroundImage');
 const errorSound = document.getElementById('errorSound');
 const xpInstallMusic = document.getElementById('xpInstallMusic');
 
-// Resimlerin orijinal boyutlarını al
-const bsodOriginalWidth = bsodImage.naturalWidth;
-const bsodOriginalHeight = bsodImage.naturalHeight;
-const monitorOriginalWidth = monitorImage.naturalWidth;
-const monitorOriginalHeight = monitorImage.naturalHeight;
-
-// Error resimlerinin orijinal boyutlarını al
-const errorOriginalWidth = errorImages[0].naturalWidth;
-const errorOriginalHeight = errorImages[0].naturalHeight;
-
-// Resimleri küçült (en-boy oranını koru)
-const bsodScaleFactor = 0.9; // BSOD resmi için ölçek
-const monitorScaleFactor = 0.5; // Monitör resmi için ölçek
-const errorScaleFactor = 0.3; // Error resimleri için ölçek (daha küçük)
+// Resimlerin orijinal boyutlarını ve ölçek faktörlerini burada tanımlayalım ama değerleri sonra atayalım
+let bsodOriginalWidth, bsodOriginalHeight, monitorOriginalWidth, monitorOriginalHeight, errorOriginalWidth, errorOriginalHeight;
+const bsodScaleFactor = 0.9;
+const monitorScaleFactor = 0.5;
+const errorScaleFactor = 0.3;
 
 // HTML Elementleri
 const startMenu = document.getElementById('startMenu');
@@ -104,12 +100,67 @@ const mainMenuButton = document.getElementById('mainMenuButton');
 const easyButton = document.getElementById('easyButton');
 const mediumButton = document.getElementById('mediumButton');
 const hardButton = document.getElementById('hardButton');
+const loadingIndicator = document.getElementById('loadingIndicator'); // Yükleme göstergesi elementi
+
+// Oyunda kullanılan tüm resim elementleri
+const imagesToLoad = [
+    bsodImage,
+    monitorImage,
+    ...errorImages, // Spread operatörü ile errorImages dizisini ekle
+    backgroundImage
+];
+
+let imagesLoadedCount = 0;
+let totalImages = imagesToLoad.length;
+
+// Resim yükleme durumunu kontrol et
+function checkAllImagesLoaded() {
+    imagesLoadedCount++;
+    if (imagesLoadedCount === totalImages) {
+        // Tüm resimler yüklendiğinde
+        console.log("Tüm resimler yüklendi.");
+
+        // Resimlerin orijinal boyutlarını al (artık yüklendiklerinden eminiz)
+        bsodOriginalWidth = bsodImage.naturalWidth;
+        bsodOriginalHeight = bsodImage.naturalHeight;
+        monitorOriginalWidth = monitorImage.naturalWidth;
+        monitorOriginalHeight = monitorImage.naturalHeight;
+        errorOriginalWidth = errorImages[0].naturalWidth; // İlk error resmi boyutunu referans al
+        errorOriginalHeight = errorImages[0].naturalHeight;
+
+        // Boyutların geçerli olup olmadığını kontrol edelim (hata ayıklama için)
+        if (!bsodOriginalWidth || !monitorOriginalWidth || !errorOriginalWidth) {
+            console.error("Bir veya daha fazla resmin orijinal boyutu okunamadı!");
+            // Burada belki bir hata mesajı gösterebilir veya varsayılan boyutlar atanabilir.
+        }
+
+        loadingIndicator.style.display = 'none'; // Yükleme göstergesini gizle
+        startMenu.style.display = 'block';    // Başlangıç menüsünü göster
+        resizeCanvas(); // Canvas boyutunu tekrar ayarla (artık boyutlar biliniyor)
+        requestAnimationFrame(gameLoop); // Oyun döngüsünü başlat (menü görünecek)
+    }
+}
+
+// Her resim için yükleme ve hata olaylarını dinle
+imagesToLoad.forEach(img => {
+    if (img.complete) {
+        // Eğer resim zaten cache'den yüklendiyse
+        checkAllImagesLoaded();
+    } else {
+        img.onload = checkAllImagesLoaded;
+        // Yüklenemeyen resimler için de sayacı artır, aksi halde takılır
+        img.onerror = () => {
+            console.error(`Resim yüklenemedi: ${img.src}`);
+            checkAllImagesLoaded(); 
+        };
+    }
+});
 
 // Arka plan kaydırma için değişken
 let backgroundOffset = 0;
 
-// İlk çağrı
-resizeCanvas();
+// İlk çağrı resizeCanvas() kaldırıldı, checkAllImagesLoaded içinde yapılacak
+// resizeCanvas();
 
 function createBsod() {
     const yPos = Math.random() < 0.5 ? PLATFORM_HEIGHT : canvas.height - PLATFORM_HEIGHT - bsodHeight;
@@ -188,7 +239,13 @@ function gameLoop() {
     drawBackground();
 
     if (!gameStarted) {
-        return;
+        // Oyun başlamadıysa, ve menüler görünüyorsa (resimler yüklendi), döngü devam etsin
+        // ancak oyun elemanlarını çizmesin veya güncellemesin.
+        // Yükleme göstergesi hala görünüyorsa, döngüye devam etme.
+        if(loadingIndicator.style.display !== 'none') {
+            requestAnimationFrame(gameLoop); // Yükleme devam ederken de animasyonu sürdür
+            return;
+        }
     }
 
     if (gameOver) {
@@ -197,6 +254,12 @@ function gameLoop() {
         xpInstallMusic.pause(); // Müziği durdur
         return;
     }
+
+    // Skoru Çiz
+    ctx.fillStyle = SCORE_COLOR;
+    ctx.font = `${scoreFontSize}px Arial`;
+    ctx.textAlign = 'left';
+    ctx.fillText(`Score: ${score}`, 20, PLATFORM_HEIGHT + scoreFontSize + 10); // Sol üste yakın
 
     // Üst ve alt platformları çiz (daha ince)
     ctx.fillStyle = BLACK;
@@ -274,12 +337,6 @@ function gameLoop() {
     // Monitörü çiz
     ctx.drawImage(monitorImage, monitorX, monitorY, monitorWidth, monitorHeight);
 
-    // Skoru göster
-    ctx.fillStyle = BLACK;
-    const fontSize = Math.max(16, Math.floor(canvas.width / 50));
-    ctx.font = `${fontSize}px Arial`;
-    ctx.fillText(`Skor: ${score}`, canvas.width - (fontSize * 7), fontSize * 1.2);
-
     requestAnimationFrame(gameLoop);
 }
 
@@ -317,31 +374,21 @@ mainMenuButton.addEventListener('click', () => {
     window.location.href = '/index.html'; 
 });
 
-// Mouse tıklama olayı
-document.addEventListener('click', () => {
-    if (gameStarted && !gameOver) {
+// Fare tıklaması veya dokunma ile yön değiştir
+function changeDirection() {
+    if (!gameOver && gameStarted) {
         monitorDirection = monitorDirection === 'up' ? 'down' : 'up';
     }
-});
+}
 
-// Klavye ok tuşları olayı
-document.addEventListener('keydown', (e) => {
-    if (gameStarted && !gameOver) {
-        if (e.key === 'ArrowUp') {
-            monitorDirection = 'up';
-        } else if (e.key === 'ArrowDown') {
-            monitorDirection = 'down';
-        }
+canvas.addEventListener('click', changeDirection);
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space' || event.code === 'ArrowUp' || event.code === 'ArrowDown') {
+        changeDirection();
     }
 });
-
-// Dokunmatik ekran için
-document.addEventListener('touchstart', (e) => {
-    if (gameStarted && !gameOver) {
-        e.preventDefault(); // Sayfanın kaymasını engelle
-        monitorDirection = monitorDirection === 'up' ? 'down' : 'up';
-    }
+// Dokunmatik desteği ekle
+canvas.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Kaydırmayı engelle
+    changeDirection();
 });
-
-// Oyun döngüsünü başlat
-requestAnimationFrame(gameLoop);

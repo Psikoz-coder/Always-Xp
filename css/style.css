@@ -1,0 +1,243 @@
+/* Genel Responsive Ayarlar */
+body {
+  background: #111 !important;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Navbar Responsive */
+#navb {
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-brand img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Carousel İyileştirmeleri */
+#carouselExampleDark {
+  max-width: 100%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px; /* Köşeleri yuvarlat */
+  overflow: hidden; /* İçerideki resimlerin köşelerini de kesmek için */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Hafif gölge */
+}
+.carousel-inner img {
+  /* max-width: 100%; */ /* Zaten w-100 ile geliyor */
+  /* height: auto; */ /* max-height ile kontrol edilecek */
+  max-height: 60vh; /* Maksimum yükseklik (viewport height) */
+  object-fit: cover; /* Resmi kırparak alanı doldur */
+  display: block;
+  margin: auto;
+  width: 100%; /* Genişliği %100 yapalım */
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6); /* Biraz daha şeffaf */
+  padding: 15px; /* Padding artırıldı */
+  border-radius: 5px;
+  color: #f8f9fa; /* Açık renk yazı */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Metin gölgesi */
+}
+
+.carousel-caption h4 {
+  margin-bottom: 0.75rem;
+}
+
+.carousel-caption p {
+  margin-bottom: 0.5rem;
+}
+
+/* Carousel Kontrolleri */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* İkon arka planı */
+  border-radius: 50%; /* Yuvarlak yap */
+  padding: 15px; /* İç boşluk */
+}
+
+.card {
+  background: #222;
+  border: none;
+  border-radius: 8px;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 18rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.card-subtitle {
+  margin-bottom: 1rem;
+  color: #aaa;
+}
+
+.card-text {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.card .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+.btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Bootstrap Grid İyileştirme */
+@media (max-width: 992px) {
+  .col-md-4 {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+  #navb {
+      text-align: center;
+      justify-content: center;
+  }
+  .carousel-inner img {
+      width: 100%;
+  }
+}
+
+.xp-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  z-index: 10000;
+}
+
+.xp-overlay img {
+  width: 150px;
+  height: 150px;
+}
+
+.xp-overlay div {
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.show-overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Sadece XP logosu ve yazıyı sallama efekti */
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5px, -5px); }
+  20% { transform: translate(5px, 5px); }
+  30% { transform: translate(-5px, 5px); }
+  40% { transform: translate(5px, -5px); }
+  50% { transform: translate(-5px, -5px); }
+  60% { transform: translate(5px, 5px); }
+  70% { transform: translate(-5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  90% { transform: translate(-5px, -5px); }
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+/* Çeviri Butonları için Navbar'da Hizalama (index.html'e de bakmak gerekebilir) */
+#translate-buttons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar Toggler açıldığında çeviri butonları için */
+@media (max-width: 991.98px) {
+  #translate-buttons {
+    margin-left: 0;
+    margin-top: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.translate-btn {
+  margin: 0 5px;
+}

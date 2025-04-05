@@ -8,6 +8,13 @@
 </head>
 <body>
     <canvas id="gameCanvas"></canvas>
+
+    <!-- Yükleme Göstergesi -->
+    <div id="loadingIndicator" class="menu">
+        <p>Yükleniyor...</p>
+        <!-- İsteğe bağlı: Buraya bir dönen ikon eklenebilir -->
+    </div>
+
     <!-- Resimleri burada önceden yüklüyoruz -->
     <img id="bsodImage" src="2.png" style="display:none;">
     <img id="monitorImage" src="1.ico" style="display:none;">
@@ -19,12 +26,12 @@
     <audio id="xpInstallMusic" src="xpinstall1.mp3" preload="auto" loop></audio>
     
         <!-- Start Menüsü ve Zorluk Seviyesi Butonları -->
-        <div id="startMenu" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-            <h1 style="color: green;">Flappy XP</h1>
-            <p style="color: green;" class="translate" data-key="zorluk" >Zorluk Seviyesi Seçin:</p>
-            <button id="easyButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="es">Easy</button>
-            <button id="mediumButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="med">Medium</button>
-            <button id="hardButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="har">Hard</button>
+        <div id="startMenu" class="menu">
+            <h1>Flappy XP</h1>
+            <p class="translate" data-key="zorluk">Zorluk Seviyesi Seçin:</p>
+            <button id="easyButton" class="translate" data-key="es">Easy</button>
+            <button id="mediumButton" class="translate" data-key="med">Medium</button>
+            <button id="hardButton" class="translate" data-key="har">Hard</button>
             <div id="translate-buttons" class="buton1">
                 <button class="translate-btn" data-lang="tr">🇹🇷 TR</button>
                 <button class="translate-btn" data-lang="en">🇬🇧 EN</button>
@@ -32,15 +39,15 @@
         </div>
     
         <!-- Game Over Menüsü -->
-        <div id="gameOverMenu" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; display: none;">
-            <h1 style="color: red;" class="translate" data-key="gameover">Oyun Bitti!</h1>
-            <p style="color: green;">Skor: <span id="finalScore">0</span></p>
-            <button id="restartButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="rev">Yeniden Başla</button>
-            <button id="difficultyButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="diff">Zorluk Seç</button>
-            <button id="mainMenuButton" style="padding: 10px 20px; font-size: 16px; margin: 5px;" class="translate" data-key="main">Ana Ekrana Dön</button>
+        <div id="gameOverMenu" class="menu" style="display: none;">
+            <h1 class="translate" data-key="gameover">Oyun Bitti!</h1>
+            <p>Skor: <span id="finalScore">0</span></p>
+            <button id="restartButton" class="translate" data-key="rev">Yeniden Başla</button>
+            <button id="difficultyButton" class="translate" data-key="diff">Zorluk Seç</button>
+            <button id="mainMenuButton" class="translate" data-key="main">Ana Ekrana Dön</button>
         </div>
 
     <script src="script.js"></script>
-    <script src="/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
